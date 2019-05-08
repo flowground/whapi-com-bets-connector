@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "apiSecret": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9]{19,50}$"
+        },
+        "apiTicket": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9-]{39,100}$"
+        },
+        "dateFrom": {
+            "required": true,
+            "type": "string",
+            "pattern": "^(\\\\d{4})-(\\\\d{2})-(\\\\d{2})T(\\\\d{2}):(\\\\d{2}):(\\\\d{2})$"
+        },
+        "dateTo": {
+            "required": true,
+            "type": "string",
+            "pattern": "^(\\\\d{4})-(\\\\d{2})-(\\\\d{2})T(\\\\d{2}):(\\\\d{2}):(\\\\d{2})$"
+        },
+        "fields": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "include": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "exclude": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "page": {
+            "required": false,
+            "type": "number",
+            "default": 1
+        },
+        "pageSize": {
+            "required": false,
+            "type": "number",
+            "default": 100
+        },
+        "sort": {
+            "required": false,
+            "type": "string",
+            "default": "transDateTime,asc"
+        },
+        "settled": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

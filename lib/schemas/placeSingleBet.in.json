@@ -1,0 +1,84 @@
+{
+    "type": "object",
+    "properties": {
+        "apiSecret": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9]{19,50}$"
+        },
+        "apiTicket": {
+            "required": true,
+            "type": "string",
+            "pattern": "^[a-zA-Z][a-zA-Z0-9-]{39,100}$"
+        },
+        "fields": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "include": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "exclude": {
+            "required": false,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "requestBody": {
+            "properties": {
+                "delayedBetId": {
+                    "description": "The delayed bet identifier",
+                    "type": "string"
+                },
+                "freeBetId": {
+                    "description": "The ID number of the free bet token if used in conjunction with this bet",
+                    "type": "string"
+                },
+                "priceDen": {
+                    "description": "When the odds are shown in vulgar fractions this is the denominator of the fraction. For example: 2 in 5/2",
+                    "type": "integer"
+                },
+                "priceNum": {
+                    "description": "When the odds are shown in vulgar fractions this is the numerator of the fraction. For example: 5 in 5/2",
+                    "type": "integer"
+                },
+                "priceType": {
+                    "description": "The type of price taken by the customer when the bet is made. Can be one of the following: L - Live Fixed price, S - Starting price - Horse and Greyhound racing or G - Guaranteed best price.",
+                    "pattern": "^(L|S|G)$",
+                    "type": "string"
+                },
+                "selectionId": {
+                    "description": "The unique ID for the selection of the bet",
+                    "pattern": "^(OB_OU\\d+)$",
+                    "type": "string",
+                    "x-eg": "OB_OU00000001"
+                },
+                "stake": {
+                    "description": "The amount of the stake placed on the bet",
+                    "format": "double",
+                    "type": "number"
+                },
+                "type": {
+                    "description": "The type of bet placed. Can be one of the following: W - Win or E- EachWay",
+                    "pattern": "^(W|E)$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "priceType",
+                "selectionId",
+                "stake",
+                "type"
+            ],
+            "type": "object"
+        }
+    }
+}
